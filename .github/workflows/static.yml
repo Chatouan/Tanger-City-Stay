@@ -1,43 +1,49 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
-
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tanger City Stay | Ferienwohnung in Tanger</title>
+  <meta name="description" content="Familienfreundliche Ferienwohnung in Tanger für bis zu 5 Gäste, mit 2 Schlafzimmern und privater Terrasse.">
+  <meta name="theme-color" content="#082b4c">
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <header class="site-header" id="start">
+    <div class="container nav-wrap">
+      <a class="brand" href="#start" aria-label="Tanger City Stay – Startseite"><img src="assets/images/logo.svg" alt="Tanger City Stay" width="72" height="72"></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation"><span></span><span></span><span></span><b class="sr-only">Menü öffnen</b></button>
+      <nav id="navigation" class="navigation" aria-label="Hauptnavigation">
+        <a href="#wohnung">Ferienwohnung</a><a href="#galerie">Galerie</a><a href="#ausstattung">Ausstattung</a><a href="#lage">Lage</a><a href="#kontakt">Kontakt</a>
+        <a class="button button-small" href="https://www.airbnb.de/rooms/633119687178812080" target="_blank" rel="noopener">Auf Airbnb buchen</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-pattern" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal"><p class="eyebrow">Willkommen zwischen zwei Meeren</p><h1 id="hero-title">Tanger<br><em>City Stay</em></h1><p class="lead">Ein komfortabler Aufenthalt im Herzen und im besonderen Flair von Tanger – zwischen Mittelmeer und Atlantik.</p><p class="slogan" lang="fr">Un séjour confortable au cœur de Tanger, entre histoire, culture et deux mers.</p><div class="button-row"><a class="button" href="https://www.airbnb.de/rooms/633119687178812080" target="_blank" rel="noopener">Auf Airbnb buchen</a><a class="button button-outline" href="#wohnung">Wohnung entdecken</a></div><p class="booking-note">Verbindliche Buchung ausschließlich über Airbnb.</p></div>
+        <div class="hero-mark reveal"><div class="arch-frame"><img src="assets/images/logo.svg" alt="Tanger City Stay Logo mit Leuchtturm, Haus und Wellen" width="560" height="560"></div></div>
+      </div><a class="scroll-cue" href="#wohnung"><span></span>Entdecken</a>
+    </section>
+    <section class="section" id="wohnung"><div class="container split"><div class="section-heading reveal"><p class="eyebrow">Ihr Zuhause in Tanger</p><h2>Die Ferienwohnung</h2><div class="gold-line"></div></div><div class="prose reveal"><p class="large">Eine komfortable Familienwohnung mit privater Terrasse für bis zu fünf Gäste.</p><p>Die gesamte Wohnung steht Ihnen privat zur Verfügung: zwei Schlafzimmer, ein Badezimmer, ein Wohnzimmer, eine ausgestattete Küche und eine Terrasse mit Stadtblick. Restaurants, Geschäfte und das Meer sind bequem erreichbar.</p><div class="stay-facts"><span><strong>5</strong>Gäste</span><span><strong>2</strong>Schlafzimmer</span><span><strong>1</strong>Bad</span><span><strong>1</strong>Terrasse</span></div><a class="button" href="https://www.airbnb.de/rooms/633119687178812080" target="_blank" rel="noopener">Auf Airbnb buchen</a></div></div></section>
+    <section class="section navy-section" id="galerie"><div class="container"><div class="section-heading centered reveal"><p class="eyebrow">Erste Eindrücke</p><h2>Bildergalerie</h2><p>Ihre Bilder erzählen bald die Geschichte von Tanger City Stay.</p></div><div class="gallery-grid"><div class="photo-card photo-large reveal"><span>01</span><strong>Wohnbereich</strong><small>Foto folgt</small></div><div class="photo-card reveal"><span>02</span><strong>Schlafen</strong><small>Foto folgt</small></div><div class="photo-card reveal"><span>03</span><strong>Details</strong><small>Foto folgt</small></div></div></div></section>
+    <section class="section" id="ausstattung"><div class="container"><div class="section-heading reveal"><p class="eyebrow">Komfort auf einen Blick</p><h2>Ausstattung &amp; Services</h2><div class="gold-line"></div></div><div class="feature-grid">
+      <article class="feature reveal"><span>01</span><h3>Schlafen &amp; Wohnen</h3><ul><li>King-Size-Bett und zwei Einzelbetten</li><li>Kinderbett und Babybett</li><li>TV, Heizung und Deckenventilator</li><li>Klimaanlage im Wohnzimmer</li><li>Waschmaschine und Bügeleisen</li></ul></article>
+      <article class="feature reveal"><span>02</span><h3>Küche &amp; Bad</h3><ul><li>Voll ausgestattete Küche</li><li>Nespresso-Maschine und Wasserkocher</li><li>Kühl-/Gefrierschrank und Backofen</li><li>Pflegeprodukte und Warmwasser</li><li>Esstisch und Kochutensilien</li></ul></article>
+      <article class="feature reveal"><span>03</span><h3>Terrasse &amp; Services</h3><ul><li>Private Terrasse mit Stadtblick</li><li>Essbereich und Elektrogrill</li><li>WLAN und eigener Arbeitsplatz</li><li>Privater Eingang und Aufzug</li><li>Parkmöglichkeiten auf der Straße</li></ul></article>
+      <article class="feature optional reveal"><span>04</span><h3>Zusätzliche Services</h3><ul><li>Privater Fahrer</li><li>Flughafentransfer</li><li>Quad und 50-ccm-Roller</li><li>Essensbestellung nach Hause</li></ul><a class="text-link" href="https://wa.me/491775949457">Kontakt per WhatsApp ↗</a></article>
+    </div></div></section>
+    <section class="section sand-section" id="lage"><div class="container location-grid"><div class="map-placeholder reveal"><div class="compass">N</div><span>TANGER</span><p>Die genaue Adresse wird über Airbnb mitgeteilt.</p></div><div class="section-heading reveal"><p class="eyebrow">Zwischen Kultur und Küste</p><h2>Lage &amp; Umgebung</h2><div class="gold-line"></div><p class="large">Geschichte, lebendige Gassen und das Gefühl, an der Schwelle zweier Meere zu stehen.</p><p>Restaurants, Geschäfte und Einrichtungen des täglichen Bedarfs befinden sich in der Nähe. Auch das Meer ist zu Fuß erreichbar.</p></div></div></section>
+    <section class="section navy-section" id="kontakt"><div class="container contact-grid"><div class="section-heading reveal"><p class="eyebrow">Wir freuen uns auf Sie</p><h2>Kontakt &amp; Buchung</h2><p>Allgemeine Fragen beantworten wir gerne. Ihre Reservierung erfolgt sicher über das offizielle Airbnb-Inserat.</p></div><div class="contact-panel reveal"><h3>Bereit für Tanger?</h3><a class="button" href="https://www.airbnb.de/rooms/633119687178812080" target="_blank" rel="noopener">Auf Airbnb buchen</a><a class="text-link" href="https://wa.me/491775949457">Informationen per WhatsApp ↗</a><p class="notice">WhatsApp: +49 177 5949457</p></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-grid"><img src="assets/images/logo.svg" alt="" width="86" height="86"><div><h2>Tanger City Stay</h2><p>Zwischen Mittelmeer und Atlantik.</p></div><div class="footer-links"><a href="#wohnung">Ferienwohnung</a><a href="#galerie">Galerie</a><a href="#ausstattung">Ausstattung</a><a href="#lage">Lage</a></div><div><a class="button" href="https://www.airbnb.de/rooms/633119687178812080">Auf Airbnb buchen</a><p>© <span id="year"></span> Tanger City Stay</p></div></div></footer>
+</body>
+</html>
